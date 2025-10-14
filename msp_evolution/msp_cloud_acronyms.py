@@ -1,4 +1,3 @@
-
 # ---------------------------------------------------------
 # msp_cloud_acronyms.py
 # Author: Julia Wen (wendigilane@gmail.com)
@@ -8,8 +7,10 @@
 #
 # ---------------------------------------------------------
 
+
 ACRONYMS = {
     "AIOps": "AI for IT Operations",
+    "AI-Driven Security": "Security operations enhanced with AI/ML analytics, threat detection, and automated remediation, including Azure Defender for Cloud, AWS Security Hub with GuardDuty integration",
     "API": "Application Programming Interface",
     "App Protection Policies": "Azure endpoint/app protection policies",
     "Azure AD": "Azure Active Directory",
@@ -18,7 +19,7 @@ ACRONYMS = {
     "BYOK": "Bring Your Own Key (Encryption)",
     "CAPEX": "Capital Expenditure",
     "CI/CD": "Continuous Integration / Continuous Deployment",
-    "CMMC 2.0": "Cybersecurity Maturity Model Certification version 2.0",
+    "CMMC 2.0": "Cybersecurity Maturity Model Certification version 2.0 — maturity framework for protecting controlled unclassified information (CUI) in the US, relevant to Azure and AWS compliance",
     "CloudHSM": "AWS Hardware Security Module",
     "CloudTrail": "AWS API call logging service",
     "Cognito": "AWS app authentication service",
@@ -31,26 +32,29 @@ ACRONYMS = {
     "Disk Encryption": "Azure Disk Encryption",
     "DDoS Protection": "Distributed Denial-of-Service mitigation",
     "DRaaS": "Disaster Recovery as a Service",
+    "EDR": "Endpoint Detection and Response — monitors endpoints for threats; Azure Defender for Endpoint, AWS GuardDuty + Security Hub",
     "Entra ID": "Azure Active Directory identity service",
     "FedRAMP": "Federal Risk and Authorization Management Program",
     "FinOps": "Cloud Financial Operations",
     "Firewall": "Azure Firewall",
-    "GANTT": "Gantt Chart",
+    "GANTT": "Gantt Chart — project schedule visualization",
     "Glacier": "AWS long-term archival storage",
     "GPUaaS": "GPU as a Service",
     "GuardDuty": "AWS threat detection service",
+    "HLD": "High-Level Design Document",
     "HIPAA": "Health Insurance Portability and Accountability Act",
     "IAM": "Identity & Access Management",
     "IaC": "Infrastructure as Code",
     "IaaS": "Infrastructure as a Service",
     "Inspector": "AWS vulnerability assessment tool",
     "ISO 27001": "Information Security Management Standard",
-    "KMS": "Key Management Service",
+    "Key Management Service (KMS)": "AWS key management service",
     "Key Vault": "Azure Key Vault",
     "KPI": "Key Performance Indicator",
+    "LLD": "Low-Level Design Document",
     "Log Analytics": "Azure log analytics service",
     "Macie": "AWS data privacy & security monitoring",
-    "MFA": "Multi-Factor Authentication",
+    "MDR": "Managed Detection and Response — outsourced monitoring and incident response, e.g., Azure Sentinel MDR, AWS Security Hub MDR",
     "Microsoft Defender": "Microsoft security and threat protection",
     "ML Ops": "Machine Learning Operations",
     "MSP": "Managed Service Provider",
@@ -81,11 +85,14 @@ ACRONYMS = {
     "SSE-C": "Server-Side Encryption with Customer-provided keys (AWS)",
     "SSE-KMS": "Server-Side Encryption with KMS-managed keys (AWS)",
     "SSE-S3": "Server-Side Encryption with S3-managed keys (AWS)",
-    "SSO": "Single Sign-On",
-    "STAR": "Situation, Task, Action, Result",
-    "VPC": "Virtual Private Cloud",
+    "SSO": "Single Sign-On — Azure AD SSO, AWS SSO for enterprise applications",
+    "SPI": "Schedule Performance Index — PM metric",
+    "VAC": "Variance at Completion — PM metric",
+    "VPC": "Virtual Private Cloud (AWS)",
+    "VNet": "Virtual Network (Azure)",
     "VPN": "Virtual Private Network",
     "WAF": "Web Application Firewall",
     "WBS": "Work Breakdown Structure",
+    "XDR": "Extended Detection & Response — unified threat detection and response across endpoints, identities, apps, and cloud; Azure Defender XDR, AWS GuardDuty + Security Hub XDR"
 }
 
