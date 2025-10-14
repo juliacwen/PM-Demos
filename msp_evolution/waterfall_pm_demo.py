@@ -1,5 +1,11 @@
 
+# ---------------------------------------------------------
 # waterfall_pm_demo.py
+# Author: Julia Wen
+# Date: 2025-10-14
+#
+# Description: waterall related PM terms
+# ---------------------------------------------------------
 import streamlit as st
 import plotly.graph_objects as go
 from msp_cloud_acronyms import ACRONYMS  # ensure your acronyms dict includes SRS, HLD, LLD, etc.

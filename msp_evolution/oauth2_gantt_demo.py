@@ -1,4 +1,10 @@
+# ---------------------------------------------------------
 # oauth2_gantt_demo.py
+# Author: Julia Wen
+# Date: 2025-10-13
+#
+# Description: oauth2 gantt graph
+# ---------------------------------------------------------
 import streamlit as st
 import pandas as pd
 import plotly.express as px
