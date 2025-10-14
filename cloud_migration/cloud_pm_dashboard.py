@@ -27,6 +27,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import textwrap
+from cmmc_webdev import render_cmmc_acronyms
 
 # ---------------------------
 # Config & Styles
@@ -38,9 +39,14 @@ with st.sidebar:
     st.title("☁️ Cloud Migration")
     theme = st.selectbox("Theme", ["Dark", "Light"])
     diagram_type = st.selectbox(
-        "Diagram",
-        ["Flow Diagram (Lifecycle)", "Hierarchical WBS Tree", "Swimlane Chart"],
-    )
+    "Diagram / Section",
+    [
+        "Flow Diagram (Lifecycle)",
+        "Hierarchical WBS Tree",
+        "Swimlane Chart",
+        "CMMC 2.0 — Web Development",
+    ],
+)
     st.markdown("---")
     st.caption("Professional palette | role-based colors | responsive layout")
 
@@ -488,4 +494,6 @@ elif diagram_type == "Hierarchical WBS Tree":
     render_wbs_tree()
 elif diagram_type == "Swimlane Chart":
     render_swimlane()
+elif diagram_type == "CMMC 2.0 — Web Development":
+    render_cmmc_acronyms()
 
