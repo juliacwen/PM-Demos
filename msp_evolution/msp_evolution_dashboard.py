@@ -19,6 +19,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import textwrap
+from streamlit.components.v1 import html
 from msp_cloud_acronyms import ACRONYMS  # import your full acronyms
 
 # ---------------------------
@@ -27,8 +28,9 @@ from msp_cloud_acronyms import ACRONYMS  # import your full acronyms
 from waterfall_oauth_demo import render_waterfall_oauth_demo
 from waterfall_pm_demo import render_waterfall_pm_demo
 from oauth2_gantt_demo import render_oauth2_gantt
-
-from streamlit.components.v1 import html
+from cmmc_acronym_menu import render_cmmc_acronym_menu
+from cmmc_agentic_ms import render_cmmc_agentic_ms
+from msp_cloud_infra import render_msp_vs_cloud_security_comparison
 
 # --- Acronym Tooltip Helpers ---
 def explain_acronym(acronym, acronyms_dict):
@@ -64,10 +66,13 @@ with st.sidebar:
             "Hierarchical Service Tree",
             "Role Evolution Swimlane",
             "Cloud Security Comparison",
+            "MSP Cloud Infra Comparison",
+            "Agentic MS CMMC",
             "Waterfall PM",   # 👈 new option
             "OAuth 2.0 Waterfall Example",   # 👈 new option
             "OAuth 2.0 Project Plan",  # NEW ENTRY
-            "IT Acronym Glossary"
+            "IT Acronym Glossary",
+            "CMMC Acronyms"
         ],
     )
     all_acronyms = ["None"] + sorted(ACRONYMS.keys())
@@ -654,17 +659,24 @@ with col1:
     elif diagram_type == "Cloud Security Comparison":
         render_cloud_comparison()
         render_network_visualization()
+    elif diagram_type == "MSP Cloud Infra Comparison":
+        render_msp_vs_cloud_security_comparison()
     elif diagram_type == "Waterfall PM":
         render_waterfall_pm_demo()
     elif diagram_type == "OAuth 2.0 Waterfall Example":
         render_waterfall_oauth_demo()
     elif diagram_type == "IT Acronym Glossary":
         render_glossary()
+    elif diagram_type == "Agentic MS CMMC":
+        render_cmmc_agentic_ms()
+    elif diagram_type == "CMMC Acronyms":
+        render_cmmc_acronym_menu()
     # OAuth 2.0 already rendered above, so no need here
 
 with col2:
     st.markdown("### 📘 Acronym Info")
-    # Show selected acronym definition regardless of diagram
+
+    # Show selected acronym definition as before
     if acronym == "None":
         st.info("Select an acronym from the sidebar to see its definition.")
     else:
@@ -683,3 +695,42 @@ with col2:
             """,
             unsafe_allow_html=True,
         )
+
+    # --- Add curated acronyms ONLY for this diagram_type ---
+    if diagram_type == "MSP Cloud Infra Comparison":
+        full_enterprise_acronyms = {
+            "EDR": "Endpoint Detection and Response",
+            "MDR": "Managed Detection and Response",
+            "SIEM": "Security Information and Event Management",
+            "IAM": "Identity and Access Management",
+            "SSO": "Single Sign-On",
+            "CMMC": "Cybersecurity Maturity Model Certification",
+            "RBAC": "Role-Based Access Control",
+            "XDR": "Extended Detection and Response",
+            "MLOps": "Machine Learning Operations",
+            "API": "Application Programming Interface",
+            "LLM": "Large Language Model",
+            "SOCaaS": "Security Operations Center as a Service",
+            "SaaS": "Software as a Service",
+            "PaaS": "Platform as a Service",
+            "IaaS": "Infrastructure as a Service",
+            "PSA": "Professional Services Automation",
+            "SOP": "Standard Operating Procedure",
+        }
+
+        st.markdown("**Common acronyms for this page:**")
+        for k, v in full_enterprise_acronyms.items():
+            st.markdown(
+                f"""
+                <div style='background-color:{'#1E293B' if dark else '#F8FAFC'};
+                            border:1px solid {LINE};
+                            border-radius:0.6rem;
+                            padding:0.5rem;
+                            margin-top:0.25rem;
+                            font-size:1rem;
+                            color:{TEXT};'>
+                    <b style='color:#FACC15'>{k}</b>: {v}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
