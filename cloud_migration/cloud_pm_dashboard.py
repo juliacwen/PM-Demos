@@ -2,13 +2,16 @@
 # cloud_pm_dashboard.py
 # Cloud Migration Dashboard — Streamlit + Plotly
 # Author: Julia Wen (wendigilane@gmail.com)
-# Date: 10-06-2025
+# 10-06-2025 - Initial
+# 10-27-2025 - Added agile pm demo
 #
 # Description:
 #   Interactive dashboard for cloud migration project, displays three diagram types:
 #     * Flow Diagram (Lifecycle) — boxes with phase tasks and arrows
 #     * Hierarchical WBS Tree — top-down tree with phases and tasks
 #     * Swimlane Chart — tasks per phase × role with role-based colors
+#     * CMMC dashboard
+#     * Agile dashboard
 #
 # Dependencies:
 #   - streamlit
@@ -28,6 +31,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import textwrap
 from cmmc_webdev import render_cmmc_acronyms
+from agile_pm_demo import render_agile_board
 
 # ---------------------------
 # Config & Styles
@@ -41,10 +45,11 @@ with st.sidebar:
     diagram_type = st.selectbox(
     "Diagram / Section",
     [
+        "Agile PM Demo",
         "Flow Diagram (Lifecycle)",
         "Hierarchical WBS Tree",
         "Swimlane Chart",
-        "CMMC 2.0 — Web Development",
+        "CMMC 2.0 — Web Development"
     ],
 )
     st.markdown("---")
@@ -488,7 +493,10 @@ def render_swimlane():
 # ---------------------------
 # Render the selected diagram
 # ---------------------------
-if diagram_type == "Flow Diagram (Lifecycle)":
+
+if diagram_type == "Agile PM Demo":
+    render_agile_board()  
+elif diagram_type == "Flow Diagram (Lifecycle)":
     render_flow_diagram()
 elif diagram_type == "Hierarchical WBS Tree":
     render_wbs_tree()
@@ -496,4 +504,6 @@ elif diagram_type == "Swimlane Chart":
     render_swimlane()
 elif diagram_type == "CMMC 2.0 — Web Development":
     render_cmmc_acronyms()
+elif diagram_type == "Agile PM Demo":
+    render_agile_board()  
 
